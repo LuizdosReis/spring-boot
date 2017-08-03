@@ -10,4 +10,9 @@ public class GastosControler {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping("listadedespesas")
+	public String listaDeDespesas() {
+		return "listadedespesas";
+	}
 }
