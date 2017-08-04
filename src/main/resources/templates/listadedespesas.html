@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Controle de Gastos</title>
+	<meta name="viewport" content="width=device-width" />
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -24,12 +25,32 @@
 						</tr>
 					</thead>
 					<thead>
-						<tr th:each="despesa: #{despesas}">
-							<td><span th:text="#{despesa.descricao}"></span></td>				
+						<tr th:each="despesa: ${despesas}">
+							<td><span th:text="${despesa.data}"></span></td>
+							<td><span th:text="${despesa.descricao}"></span></td>
+							<td><span th:text="${despesa.valor}"></span></td>
 						</tr>
 					</thead>
 				</table>
 			</div>
+		</div>
+
+		<div class="container">
+			<form action="adicionar" method="post" class="form-inline">
+				<div class="form-group">
+					<label for="data">Data</label>
+					<input type="datetime" class="form-control" id="nome" name="data" placeholder="Data"></input>
+				</div>
+				<div class="form-group">
+					<label for="descricao">Descrição</label>
+						<input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição"></input>
+				</div>
+				<div class="form-group">
+					<label for="valor">Valor</label>
+					<input type="number" class="form-control" id="valor" name="valor" placeholder="Valor"></input>
+				</div>
+				<button class="btn btn-success" type="submit">Adicionar</button>
+			</form>
 		</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
